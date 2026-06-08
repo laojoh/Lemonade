@@ -1,3 +1,6 @@
+import numpy as np
+import mmap
+import os
 import pygame
 import sys
 from scripts.entities import PhysicsEntity, Player
@@ -10,8 +13,11 @@ class Game:
         pygame.init()
 
         pygame.display.set_caption("lemonade")
-        self.screen = pygame.display.set_mode((640, 480))
-        self.display = pygame.Surface((320, 240))
+        self.screen = pygame.display.set_mode((480, 320))
+        self.display = pygame.Surface((240, 160))
+
+        fb = open("/dev/fb0", "r+b")
+        self.fbmem = mmap.mmap(fb.fileno(), self.screen.get_width, self.screen.get_height() * 4, offset = 0)
 
         self.clock = pygame.time.Clock()
 
@@ -78,8 +84,17 @@ class Game:
                     if event.key == pygame.K_RIGHT:
                         self.movement[1] = False
             
-            self.screen.blit(pygame.transform.scale(self.display, self.screen.get_size()))
-            pygame.display.update()
+            arr = pygame.surfarray.array3d(pygame.transform.scale(self.display, self.screen.get_size()))
+            frame = np.empty((self.screen.get_width(), self.screen.get_height(), 4), dtype = np.uint8)
+
+            frame[:, :, 0] = arr[:, :, 2].T
+            frame[:, :, 1] = arr[:, :, 1].T
+            frame[:, :, 2] = arr[:, :, 0].T
+            frame[:, :, 3] = 255
+
+            self.fbmem.seek(0)
+            self.fbmem.write(frame.tobytes())
+
             self.clock.tick(60)
 
 Game().run()    
