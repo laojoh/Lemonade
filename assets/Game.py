@@ -17,7 +17,7 @@ class Game:
         self.display = pygame.Surface((240, 160))
 
         fb = open("/dev/fb0", "r+b")
-        self.fbmem = mmap.mmap(fb.fileno(), self.screen.get_width, self.screen.get_height() * 4, offset = 0)
+        self.fbmem = mmap.mmap(fb.fileno(), self.screen.get_width() * self.screen.get_height() * 4)
 
         self.clock = pygame.time.Clock()
 
@@ -83,17 +83,16 @@ class Game:
                         self.movement[0] = False
                     if event.key == pygame.K_RIGHT:
                         self.movement[1] = False
-            
-            arr = pygame.surfarray.array3d(pygame.transform.scale(self.display, self.screen.get_size()))
-            frame = np.empty((self.screen.get_width(), self.screen.get_height(), 4), dtype = np.uint8)
 
-            frame[:, :, 0] = arr[:, :, 2].T
-            frame[:, :, 1] = arr[:, :, 1].T
-            frame[:, :, 2] = arr[:, :, 0].T
-            frame[:, :, 3] = 255
+            scaled_surf = pygame.transform.scale(self.display, self.screen.get_size()
+            rgba_bytes = pygame.image.tostring(scaled_surf, "RGBA")
+            frame_array = np.frombuffer(rgba_bytes, dtype = uint8)
+            frame_rect = frame_array.reshape(self.screen.get_height(), self.screen.get_width(), 4)
+            bgra_frame = frame_rect[:, :, [2, 1, 0, 3]].copy()
 
             self.fbmem.seek(0)
-            self.fbmem.write(frame.tobytes())
+
+            self.fbmem.write(bgra_frame.tobytes())
 
             self.clock.tick(60)
 
