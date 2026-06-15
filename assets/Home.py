@@ -1,0 +1,3 @@
+import Game
+
+Game.run()

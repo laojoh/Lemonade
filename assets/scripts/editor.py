@@ -10,8 +10,8 @@ class Editor:
         pygame.init()
 
         pygame.display.set_caption("editor")
-        self.screen = pygame.display.set_mode((640, 480))
-        self.display = pygame.Surface((320, 240))
+        self.screen = pygame.display.set_mode((1200, 800))
+        self.display = pygame.Surface((600, 400))
 
         self.clock = pygame.time.Clock()
 
@@ -20,7 +20,7 @@ class Editor:
             "grass" : load_images("/tiles/grass"),
             "large_decor" : load_images("/tiles/large_decor"),
             "stone" : load_images("/tiles/stone"),
-            
+            "spawners" : load_images("/tiles/spawners"),
         }
 
         self.movement = [False, False, False, False]
@@ -28,7 +28,7 @@ class Editor:
         self.tilemap = Tilemap(self, tile_size = 16)
 
         try:
-            self.tilemap.load("map.json")
+            self.tilemap.load("assets/data/maps/4.json")
         except FileNotFoundError:
             pass
 
@@ -126,7 +126,7 @@ class Editor:
                     if event.key == pygame.K_t:
                         self.tilemap.autotile()
                     if event.key == pygame.K_o:
-                        self.tilemap.save("map.json")
+                        self.tilemap.save("assets/data/maps/4.json")
                     if event.key == pygame.K_LSHIFT:
                         self.shift = True
 
