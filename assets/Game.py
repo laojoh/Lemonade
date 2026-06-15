@@ -18,6 +18,8 @@ class Game:
         self.screen = pygame.display.set_mode((480, 320))
         self.display = pygame.Surface((240, 160))
 
+        self.shake_surface = pygame.Surface(self.screen.get_size())
+
         fb = open("/dev/fb0", "r+b")
         self.fbmem = mmap.mmap(fb.fileno(), self.screen.get_width() * self.screen.get_height() * 4)
 
@@ -194,7 +196,11 @@ class Game:
             
             screenshake_offset = (random.random() * self.screenshake - self.screenshake / 2, random.random() * self.screenshake - self.screenshake / 2)
 
-            scaled_surf = pygame.transform.scale(self.display, self.screen.get_size())
+            self.shake_surface.fill((0, 0, 0))
+            self.shake_surface.blit(self.display, screenshake_offset)
+
+            scaled_surf = pygame.transform.scale(self.shake_surface, self.screen.get_size())
+
             rgba_bytes = pygame.image.tostring(scaled_surf, "RGBA")
             frame_array = np.frombuffer(rgba_bytes, dtype = np.uint8)
             frame_rect = frame_array.reshape(self.screen.get_height(), self.screen.get_width(), 4)
