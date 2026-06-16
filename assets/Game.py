@@ -174,10 +174,13 @@ class Game:
                 if kill:
                     self.particles.remove(particle)
 
-
-            if self.button1.is_pressed:
+            jump_times = 0;
+            if self.button1.is_pressed and jump_times == 0:
                 self.player.jump()
+                jump_times = 1
                 print("jump")
+            else:
+                jump_times = 0
             if self.button2.is_pressed:
                 self.movement[1] = True
             else: 
