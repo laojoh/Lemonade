@@ -5,10 +5,12 @@ import os
 import pygame
 import sys
 import random
-from scripts.entities import PhysicsEntity, Player
+from scripts.entities import PhysicsEntity, Player, Enemy
 from scripts.utils import Animation, load_image, load_images
 from scripts.tilemap import Tilemap
 from scripts.clouds import Clouds
+from scripts.particle import Particle
+from scripts.spark import Spark
 
 class Game:
     def __init__(self):
@@ -60,7 +62,7 @@ class Game:
         self.screenshake = 0
 
     def load_level(self, map_id):
-        self.tilemap.load("assets/data/maps/" + str(map_id) + ".json")
+        self.tilemap.load("data/maps/" + str(map_id) + ".json")
         self.leaf_spawners = []
         for tree in self.tilemap.extract([("large_decor", 2)], keep = True):
             self.leaf_spawners.append(pygame.Rect(4 + tree["pos"][0], 4 + tree["pos"][1], 23, 13))
