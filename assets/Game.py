@@ -203,13 +203,18 @@ class Game:
 
             scaled_surf = pygame.transform.scale(self.shake_surface, self.screen.get_size())
 
+            x = 100
+            y = 100
+
+            print("pygame:", scaled_surf.get_at((x, y)))
+
             rgba_bytes = pygame.image.tostring(scaled_surf, "RGBA")
             frame_array = np.frombuffer(rgba_bytes, dtype = np.uint8)
             frame_rect = frame_array.reshape(self.screen.get_height(), self.screen.get_width(), 4)
             bgra_frame = frame_rect[:, :, [2, 1, 0, 3]].copy()
 
-            for pixel in bgra_frame:
-                pixel[3] = 255 - pixel[3]
+            print("rgba:", frame_rect[y, x])
+            print("bgra:", bgra_frame[y, x])
 
             self.fbmem.seek(0)
 
