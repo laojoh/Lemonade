@@ -180,7 +180,7 @@ class Game:
                 self.player.jump()
                 self.jump_times = 1
                 print("jump")
-            elif not button1.is_pressed:
+            elif not self.button1.is_pressed:
                 self.jump_times = 0
                 print("no")
             if self.button2.is_pressed:
