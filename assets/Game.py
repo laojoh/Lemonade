@@ -182,13 +182,15 @@ class Game:
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_LEFT:
                         self.movement[0] = True
-                    if event.key == pygame.K_RIGHT:
+                    if self.button2.is_active:
                         self.movement[1] = True
-                    if self.button1.is_pressed:
+                    if self.button1.is_active:
                         self.player.jump()
                         print("jump")
                     if event.key == pygame.K_x:
                         self.player.dash()
+
+                        
                 if event.type == pygame.KEYUP:
                     if event.key == pygame.K_LEFT:
                         self.movement[0] = False
