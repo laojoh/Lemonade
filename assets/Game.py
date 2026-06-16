@@ -18,7 +18,7 @@ class Game:
         self.screen = pygame.display.set_mode((480, 320))
         self.display = pygame.Surface((240, 160))
 
-        self.shake_surface = pygame.Surface(self.screen.get_size())
+        self.shake_surface = pygame.Surface(self.display.get_size())
 
         fb = open("/dev/fb0", "r+b")
         self.fbmem = mmap.mmap(fb.fileno(), self.screen.get_width() * self.screen.get_height() * 4)
