@@ -206,7 +206,7 @@ class Game:
             rgba_bytes = pygame.image.tostring(scaled_surf, "RGBA")
             frame_array = np.frombuffer(rgba_bytes, dtype = np.uint8)
             frame_rect = frame_array.reshape(self.screen.get_height(), self.screen.get_width(), 4)
-            bgra_frame = frame_rect[:, :, [2, 1, 0, 3]].copy()
+            bgra_frame = frame_rect[:, :, [2, 1, 3, 0]].copy()
 
             self.fbmem.seek(0)
 
