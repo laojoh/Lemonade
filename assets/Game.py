@@ -185,7 +185,7 @@ class Game:
             if self.button3.is_pressed:
                 self.movement[0] = True
             else:
-                self.movement[0] = True
+                self.movement[0] = False
             if self.button4.is_pressed:
                 self.player.dash()
                 print("dash")
@@ -237,6 +237,6 @@ class Game:
 
             self.fbmem.write(bgra_frame.tobytes())
 
-            self.clock.tick(60)
+            self.clock.tick(120)
 
 Game().run()
