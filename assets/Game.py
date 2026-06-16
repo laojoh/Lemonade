@@ -88,6 +88,7 @@ class Game:
         self.scroll = [0, 0]
         self.dead = 0
         self.transition = -30
+        self.jump_times = 0
 
 
     def run(self):
@@ -174,13 +175,14 @@ class Game:
                 if kill:
                     self.particles.remove(particle)
 
-            jump_times = 0;
+
             if self.button1.is_pressed and jump_times == 0:
                 self.player.jump()
-                jump_times = 1
+                self.jump_times = 1
                 print("jump")
             else:
-                jump_times = 0
+                self.jump_times = 0
+                print("no")
             if self.button2.is_pressed:
                 self.movement[1] = True
             else: 
