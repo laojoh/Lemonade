@@ -174,28 +174,43 @@ class Game:
                 if kill:
                     self.particles.remove(particle)
 
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    pygame.quit()
-                    sys.exit()
 
-                if event.type == pygame.KEYDOWN:
-                    if event.key == pygame.K_LEFT:
-                        self.movement[0] = True
-                    if self.button2.is_active:
-                        self.movement[1] = True
-                    if self.button1.is_active:
-                        self.player.jump()
-                        print("jump")
-                    if event.key == pygame.K_x:
-                        self.player.dash()
+            if self.button1.is_pressed:
+                self.player.jump()
+                print("jump")
+            if self.button2.is_pressed:
+                self.movement[1] = True
+            else: 
+                self.movement[1] = False
+            if self.button3.is_pressed:
+                self.movement[0] = True
+            else:
+                self.movement[0] = True
+            if self.button4.is_pressed:
+                self.player.dash()
+                print("dash")
 
-                        
-                if event.type == pygame.KEYUP:
-                    if event.key == pygame.K_LEFT:
-                        self.movement[0] = False
-                    if event.key == pygame.K_RIGHT:
-                        self.movement[1] = False
+            # for event in pygame.event.get():
+            #     if event.type == pygame.QUIT:
+            #         pygame.quit()
+            #         sys.exit()
+
+            #     if event.type == pygame.KEYDOWN:
+            #         if event.key == pygame.K_LEFT:
+            #             self.movement[0] = True
+            #         if event.key == pygame.K_RIGHT:
+            #             self.movement[1] = True
+            #         if event.key == pygame.K_UP:
+            #             self.player.jump()
+            #         if event.key == pygame.K_x:
+            #             self.player.dash()
+
+
+            #     if event.type == pygame.KEYUP:
+            #         if event.key == pygame.K_LEFT:
+            #             self.movement[0] = False
+            #         if event.key == pygame.K_RIGHT:
+            #             self.movement[1] = False
 
             if self.transition:
                 transition_surf = pygame.Surface(self.display.get_size())
