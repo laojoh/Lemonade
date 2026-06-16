@@ -176,7 +176,7 @@ class Game:
                     self.particles.remove(particle)
 
 
-            if self.button1.is_pressed and jump_times == 0:
+            if self.button1.is_pressed and self.jump_times == 0:
                 self.player.jump()
                 self.jump_times = 1
                 print("jump")
