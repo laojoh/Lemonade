@@ -55,7 +55,7 @@ class Game:
         self.tilemap = Tilemap(self, tile_size = 16)
 
         self.level = 0
-        self.tilemap.load(self.level)
+        self.load_level(self.level)
 
         self.screenshake = 0
 
