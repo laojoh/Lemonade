@@ -195,7 +195,7 @@ class Game:
                 pygame.draw.circle(transition_surf, (255, 255, 255), (self.display.get_width() // 2 - ((30 - abs(self.transition)) * 8) * 0.6, self.display.get_height() // 2 + ((30 - abs(self.transition)) * 8) * 0.6), (30 - abs(self.transition)) * 3)
                 transition_surf.set_colorkey((255, 255, 255))
                 self.display.blit(transition_surf, (0, 0))
-            
+
             screenshake_offset = (random.random() * self.screenshake - self.screenshake / 2, random.random() * self.screenshake - self.screenshake / 2)
 
             self.shake_surface.fill((0, 0, 0))
