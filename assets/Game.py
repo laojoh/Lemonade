@@ -191,7 +191,6 @@ class Game:
                 self.movement[0] = False
             if self.button4.is_pressed:
                 self.player.dash()
-                print("dash")
 
             # for event in pygame.event.get():
             #     if event.type == pygame.QUIT:
