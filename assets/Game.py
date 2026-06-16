@@ -5,6 +5,7 @@ import os
 import pygame
 import sys
 import random
+import RPi.GPIO as GPIO
 from scripts.entities import PhysicsEntity, Player, Enemy
 from scripts.utils import Animation, load_image, load_images
 from scripts.tilemap import Tilemap
@@ -24,6 +25,12 @@ class Game:
 
         fb = open("/dev/fb0", "r+b")
         self.fbmem = mmap.mmap(fb.fileno(), self.screen.get_width() * self.screen.get_height() * 4)
+
+        GPIO.setmode(GPIO.BCM)
+        GPIO.setup(12, GPIO.IN)
+        GPIO.setup(16, GPIO.IN)
+        GPIO.setup(20, GPIO.IN)
+        GPIO.setup(21, GPIO.IN)
 
         self.clock = pygame.time.Clock()
 
@@ -178,8 +185,9 @@ class Game:
                         self.movement[0] = True
                     if event.key == pygame.K_RIGHT:
                         self.movement[1] = True
-                    if event.key == pygame.K_UP:
+                    if not GPIO.input(16):
                         self.player.jump()
+                        print("jump")
                     if event.key == pygame.K_x:
                         self.player.dash()
                 if event.type == pygame.KEYUP:
