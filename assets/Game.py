@@ -214,7 +214,5 @@ class Game:
             self.fbmem.write(bgra_frame.tobytes())
 
             self.clock.tick(60)
-            
-            print(bgra_frame[1])
 
 Game().run()
