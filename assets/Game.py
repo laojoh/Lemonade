@@ -209,7 +209,7 @@ class Game:
 
             self.shake_surface.fill((0, 0, 0))
             self.shake_surface.blit(self.display, screenshake_offset)
-            self.shake_surface.fill((30, 30, 30), special_flags=pygame.BLEND_RGB_ADD)
+            self.shake_surface.fill((50, 50, 50), special_flags=pygame.BLEND_RGB_ADD)
 
             scaled_surf = pygame.transform.scale(self.shake_surface, self.screen.get_size())
 
