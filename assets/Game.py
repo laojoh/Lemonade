@@ -207,8 +207,11 @@ class Game:
 
             screenshake_offset = (random.random() * self.screenshake - self.screenshake / 2, random.random() * self.screenshake - self.screenshake / 2)
 
-            self.display.blit(self.cloud, (0, 0))
-            print(self.display.get_at((40,4)))
+            pygame.draw.rect(self.display, (219,224,231), (0,0,80,80))
+            pygame.draw.rect(self.display, (255,255,255), (80,0,80,80))
+
+            pygame.draw.rect(self.display, (80,180,80), (0,80,80,80))
+            pygame.draw.rect(self.display, (0,255,0), (80,80,80,80))
 
             self.shake_surface.fill((0, 0, 0))
             self.shake_surface.blit(self.display, screenshake_offset)
