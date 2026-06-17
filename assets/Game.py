@@ -231,7 +231,7 @@ class Game:
 
             scaled_surf = pygame.transform.scale(self.shake_surface, self.screen.get_size())
 
-            t1 = time.perf_coutner()
+            t1 = time.perf_counter()
 
             rgba_bytes = pygame.image.tostring(scaled_surf, "RGBA")
 
