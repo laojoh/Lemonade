@@ -1,7 +1,7 @@
 import pygame
 import os
 
-BASE_IMG_PATH = "data/images"
+BASE_IMG_PATH = "home/laojoh/Lemonade/assets/data/images"
 
 def load_image(path):
     img = pygame.image.load(BASE_IMG_PATH + path).convert()
