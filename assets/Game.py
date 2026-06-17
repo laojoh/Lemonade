@@ -90,6 +90,16 @@ class Game:
         self.transition = -30
         self.jump_times = 0
 
+        cloud = self.assets["clouds"][0]
+
+        print("bits:", cloud.get_bitsize())
+        print("flags:", cloud.get_flags())
+        print("masks:", cloud.get_masks())
+        print("alpha:", cloud.get_alpha())
+        print("colorkey:", cloud.get_colorkey())
+
+        print(self.display.get_bitsize())
+        print(self.display.get_masks())
 
     def run(self):
         while True:
@@ -207,8 +217,7 @@ class Game:
             self.display.fill((0, 255, 0))
             self.shake_surface.blit(self.display, screenshake_offset)
 
-            # scaled_surf = pygame.transform.scale(self.shake_surface, self.screen.get_size())
-            scaled_surf = self.shake_surface
+            scaled_surf = pygame.transform.scale(self.shake_surface, self.screen.get_size())
 
             bgra_frame = bytes(scaled_surf.get_buffer())
 
