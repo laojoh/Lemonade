@@ -237,7 +237,7 @@ class Game:
 
             self.fbmem.seek(0)
 
-            self.fbmem.write(bgra_frame.tobytes())
+            self.fbmem.write(bgra_frame)
 
             self.clock.tick(60)
 
