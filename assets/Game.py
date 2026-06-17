@@ -207,14 +207,9 @@ class Game:
 
             screenshake_offset = (random.random() * self.screenshake - self.screenshake / 2, random.random() * self.screenshake - self.screenshake / 2)
 
-            pygame.draw.rect(self.display, (219,224,231), (0,0,80,80))
-            pygame.draw.rect(self.display, (255,255,255), (80,0,80,80))
-
-            pygame.draw.rect(self.display, (80,180,80), (0,80,80,80))
-            pygame.draw.rect(self.display, (0,255,0), (80,80,80,80))
-
             self.shake_surface.fill((0, 0, 0))
             self.shake_surface.blit(self.display, screenshake_offset)
+            self.shake_surface.fill((30, 30, 30), special_flags=pygame.BLEND_RGB_ADD)
 
             scaled_surf = pygame.transform.scale(self.shake_surface, self.screen.get_size())
 
