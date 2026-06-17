@@ -3,7 +3,7 @@ import numpy as np
 import mmap
 import os
 import pygame
-import sys
+import time
 import random
 from gpiozero import Button
 from scripts.entities import PhysicsEntity, Player, Enemy
@@ -227,16 +227,34 @@ class Game:
             self.shake_surface.fill((0, 0, 0))
             self.shake_surface.blit(self.display, screenshake_offset)
 
+            t0 = time.perf_counter()
+
             scaled_surf = pygame.transform.scale(self.shake_surface, self.screen.get_size())
 
+            t1 = time.perf_coutner()
+
             rgba_bytes = pygame.image.tostring(scaled_surf, "RGBA")
+
+            t2 = time.perf_counter()
+
             frame_array = np.frombuffer(rgba_bytes, dtype = np.uint8)
             frame_rect = frame_array.reshape(self.screen.get_height(), self.screen.get_width(), 4)
             bgra_frame = frame_rect[:, :, [2, 1, 0, 3]].copy()
 
+            t3 = time.perf_counter()
+
             self.fbmem.seek(0)
 
             self.fbmem.write(bgra_frame.tobytes())
+
+            t4 = time.perf_counter()
+
+            print(
+                f"scale={(t1-t0)*1000:.1f}ms "
+                f"tostring={(t2-t1)*1000:.1f}ms "
+                f"swap={(t3-t2)*1000:.1f}ms "
+                f"write={(t4-t3)*1000:.1f}ms"
+            )
 
             self.clock.tick(60)
 
