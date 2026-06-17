@@ -11,7 +11,7 @@ from scripts.clouds import Clouds
 from scripts.particle import Particle
 from scripts.spark import Spark
 
-class Game:
+class Game1:
     def __init__(self):
         pygame.init()
 
@@ -195,4 +195,4 @@ class Game:
             pygame.display.update()
             self.clock.tick(60)
 
-Game().run()    
+Game1().run()    
