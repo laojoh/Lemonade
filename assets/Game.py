@@ -90,6 +90,11 @@ class Game:
         self.transition = -30
         self.jump_times = 0
 
+        self.cloud = self.assets["clouds"][0]
+        pygame.image.save(self.cloud, "cloud_reencoded.bmp")
+
+        self.cloud = pygame.image.load("cloud_reencoded.bmp").convert()
+
     def run(self):
         while True:
             self.display.blit(self.assets["background"], (0, 0))
@@ -201,6 +206,9 @@ class Game:
                 self.display.blit(transition_surf, (0, 0))
 
             screenshake_offset = (random.random() * self.screenshake - self.screenshake / 2, random.random() * self.screenshake - self.screenshake / 2)
+
+            self.display.blit(self.cloud, (0, 0))
+            print(self.display.get_at((10,10)))
 
             self.shake_surface.fill((0, 0, 0))
             self.shake_surface.blit(self.display, screenshake_offset)
