@@ -208,7 +208,7 @@ class Game:
             screenshake_offset = (random.random() * self.screenshake - self.screenshake / 2, random.random() * self.screenshake - self.screenshake / 2)
 
             self.display.blit(self.cloud, (0, 0))
-            print(self.display.get_at((10,10)))
+            print(self.display.get_at((40,4)))
 
             self.shake_surface.fill((0, 0, 0))
             self.shake_surface.blit(self.display, screenshake_offset)
