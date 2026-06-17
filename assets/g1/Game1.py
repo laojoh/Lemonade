@@ -4,12 +4,12 @@ import pygame
 import sys
 import random
 import os
-from scripts.entities import PhysicsEntity, Player, Enemy
-from scripts.utils import Animation, load_image, load_images
-from scripts.tilemap import Tilemap
-from scripts.clouds import Clouds
-from scripts.particle import Particle
-from scripts.spark import Spark
+from g1.scripts.entities import PhysicsEntity, Player, Enemy
+from g1.scripts.utils import Animation, load_image, load_images
+from g1.scripts.tilemap import Tilemap
+from g1.scripts.clouds import Clouds
+from g1.scripts.particle import Particle
+from g1.scripts.spark import Spark
 
 class Game1:
     def __init__(self):
@@ -56,7 +56,7 @@ class Game1:
         self.screenshake = 0
 
     def load_level(self, map_id):
-        self.tilemap.load("assets/data/maps/" + str(map_id) + ".json")
+        self.tilemap.load("assets/g1/data/maps/" + str(map_id) + ".json")
         self.leaf_spawners = []
         for tree in self.tilemap.extract([("large_decor", 2)], keep = True):
             self.leaf_spawners.append(pygame.Rect(4 + tree["pos"][0], 4 + tree["pos"][1], 23, 13))
@@ -87,7 +87,7 @@ class Game1:
             if not len(self.enemies):
                 self.transition += 0.5
                 if self.transition > 30:
-                    self.level = min(self.level + 1, len(os.listdir("assets/data/maps")) - 1)
+                    self.level = min(self.level + 1, len(os.listdir("assets/g1/data/maps")) - 1)
                     self.load_level(self.level)
             if self.transition < 0:
                 self.transition += 0.5
@@ -194,5 +194,3 @@ class Game1:
             self.screen.blit(pygame.transform.scale(self.display, self.screen.get_size()), screenshake_offset)
             pygame.display.update()
             self.clock.tick(60)
-
-Game1().run()    

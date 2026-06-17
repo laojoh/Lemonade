@@ -1,7 +1,7 @@
 import pygame
 import sys
 
-import Game1
+import g1.Game1 as g1
 
 class Home:
     def __init__(self):
@@ -13,8 +13,21 @@ class Home:
 
         self.clock = pygame.time.Clock()
 
+        self.gap = 10
+
+        self.game_list = list()
+
+
+        
+
     def run(self):
         while True:
+
+            self.display.fill((255, 255, 255))
+
+            for tile in self.game_list:
+                pygame.draw.rect()
+
 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -23,7 +36,7 @@ class Home:
 
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_1:
-                        Game1().run()
+                        g1.Game1().run()
 
             
 
