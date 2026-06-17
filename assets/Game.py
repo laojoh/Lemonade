@@ -192,27 +192,6 @@ class Game:
             if self.button4.is_pressed:
                 self.player.dash()
 
-            # for event in pygame.event.get():
-            #     if event.type == pygame.QUIT:
-            #         pygame.quit()
-            #         sys.exit()
-
-            #     if event.type == pygame.KEYDOWN:
-            #         if event.key == pygame.K_LEFT:
-            #             self.movement[0] = True
-            #         if event.key == pygame.K_RIGHT:
-            #             self.movement[1] = True
-            #         if event.key == pygame.K_UP:
-            #             self.player.jump()
-            #         if event.key == pygame.K_x:
-            #             self.player.dash()
-
-
-            #     if event.type == pygame.KEYUP:
-            #         if event.key == pygame.K_LEFT:
-            #             self.movement[0] = False
-            #         if event.key == pygame.K_RIGHT:
-            #             self.movement[1] = False
 
             if self.transition:
                 transition_surf = pygame.Surface(self.display.get_size())
@@ -229,10 +208,6 @@ class Game:
 
             scaled_surf = pygame.transform.scale(self.shake_surface, self.screen.get_size())
 
-            # rgba_bytes = pygame.image.tostring(scaled_surf, "RGBA")
-            # frame_array = np.frombuffer(rgba_bytes, dtype = np.uint8)
-            # frame_rect = frame_array.reshape(self.screen.get_height(), self.screen.get_width(), 4)
-            # bgra_frame = frame_rect[:, :, [2, 1, 0, 3]].copy()
             bgra_frame = bytes(scaled_surf.get_buffer())
 
             self.fbmem.seek(0)
