@@ -1,9 +1,9 @@
 import math
-# import numpy as np
+import numpy as np
 import mmap
 import os
 import pygame
-import time
+import sys
 import random
 from gpiozero import Button
 from scripts.entities import PhysicsEntity, Player, Enemy
@@ -229,15 +229,15 @@ class Game:
 
             scaled_surf = pygame.transform.scale(self.shake_surface, self.screen.get_size())
 
-            bgra_bytes = pygame.image.tostring(scaled_surf, "BGRA")
-
+            # rgba_bytes = pygame.image.tostring(scaled_surf, "RGBA")
             # frame_array = np.frombuffer(rgba_bytes, dtype = np.uint8)
             # frame_rect = frame_array.reshape(self.screen.get_height(), self.screen.get_width(), 4)
             # bgra_frame = frame_rect[:, :, [2, 1, 0, 3]].copy()
+            bgra_frame = bytes(scaled_surf.get_buffer())
 
             self.fbmem.seek(0)
 
-            self.fbmem.write(bgra_bytes)
+            self.fbmem.write(bgra_frame.tobytes())
 
             self.clock.tick(60)
 
