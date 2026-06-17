@@ -91,7 +91,7 @@ class Game:
         self.jump_times = 0
 
         self.cloud = self.assets["clouds"][0]
-        pygame.image.save(cloud, "cloud_reencoded.bmp")
+        pygame.image.save(self.cloud, "cloud_reencoded.bmp")
 
         self.cloud = pygame.image.load("cloud_reencoded.bmp").convert()
 
