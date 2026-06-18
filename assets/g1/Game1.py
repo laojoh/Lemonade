@@ -222,3 +222,5 @@ class Game1:
             self.fbmem.write(bgra_frame)
 
             self.clock.tick(60)
+
+            Game1().run()
