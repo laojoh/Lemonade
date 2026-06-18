@@ -81,7 +81,7 @@ class Home:
                             self.highlighted -= 2
 
             self.display.blit(self.banner, (0, 0))
-            bgra_frame = bytes(pygame.transform.scale(self.display.get_size(), self.screen.get_size()).get_buffer())
+            bgra_frame = bytes(pygame.transform.scale(self.display, self.screen.get_size()).get_buffer())
 
             self.fbmem.seek(0)
 
