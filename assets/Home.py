@@ -7,7 +7,7 @@ import sys
 
 from gpiozero import Button
 from scripts.tile import Tile
-import g1.Game1
+from g1.Game1 import Game1
 
 class Home:
     def __init__(self):
@@ -77,7 +77,7 @@ class Home:
                     self.highlighted += 2
 
             if self.highlighted == 0 and self.button5.is_pressed:
-                g1.Game1().run()
+                Game1().run()
 
             # for event in pygame.event.get():
             #     if event.type == pygame.QUIT:
