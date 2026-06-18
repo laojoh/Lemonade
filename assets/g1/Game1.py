@@ -6,12 +6,12 @@ import pygame
 import sys
 import random
 from gpiozero import Button
-from g1.scripts.entities import PhysicsEntity, Player, Enemy
-from g1.scripts.utils import Animation, load_image, load_images
-from g1.scripts.tilemap import Tilemap
-from g1.scripts.clouds import Clouds
-from g1.scripts.particle import Particle
-from g1.scripts.spark import Spark
+from scripts.entities import PhysicsEntity, Player, Enemy
+from scripts.utils import Animation, load_image, load_images
+from scripts.tilemap import Tilemap
+from scripts.clouds import Clouds
+from scripts.particle import Particle
+from scripts.spark import Spark
 
 class Game1:
     def __init__(self):
