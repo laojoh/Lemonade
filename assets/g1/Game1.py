@@ -70,7 +70,7 @@ class Game1:
         self.screenshake = 0
 
     def load_level(self, map_id):
-        self.tilemap.load("data/maps/" + str(map_id) + ".json")
+        self.tilemap.load("g1/data/maps/" + str(map_id) + ".json")
         self.leaf_spawners = []
         for tree in self.tilemap.extract([("large_decor", 3)], keep = True):
             self.leaf_spawners.append(pygame.Rect(4 + tree["pos"][0], 4 + tree["pos"][1], 23, 13))
@@ -101,7 +101,7 @@ class Game1:
             if not len(self.enemies):
                 self.transition += 0.5
                 if self.transition > 30:
-                    self.level = min(self.level + 1, len(os.listdir("data/maps")) - 1)
+                    self.level = min(self.level + 1, len(os.listdir("g1/data/maps")) - 1)
                     self.load_level(self.level)
             if self.transition < 0:
                 self.transition += 0.5
@@ -217,5 +217,3 @@ class Game1:
             self.fbmem.write(bgra_frame)
 
             self.clock.tick(60)
-
-Game1().run()
