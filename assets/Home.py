@@ -48,7 +48,8 @@ class Home:
 
         self.banner_title = pygame.font.SysFont("Verdana", 16)
         self.banner_title_surf = self.banner_title.render("lemonade", True, (255, 255, 255))
-        self.display.blit(self.banner_title_surf, (2, 2))
+        self.banner.fill((255, 255, 0))
+        self.banner.blit(self.banner_title_surf, (2, 2))
 
         self.highlighted = 0
 
@@ -56,7 +57,6 @@ class Home:
         while True:
 
             self.display.fill((250, 250, 250))
-            self.banner.fill((255, 255, 0))
 
             for tile in self.page_1:
                 tile.highlight(self.highlighted)
