@@ -223,4 +223,4 @@ class Game1:
 
             self.clock.tick(60)
 
-            Game1().run()
+Game1().run()
