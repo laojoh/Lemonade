@@ -27,6 +27,8 @@ class Home:
         self.button5 = Button(19)
         self.button6 = Button(26)
 
+        self.clock = pygame.time.Clock()
+
         self.game_button_w = 100
         self.game_button_h = 50
 
@@ -79,7 +81,7 @@ class Home:
                             self.highlighted -= 2
 
             self.display.blit(self.banner, (0, 0))
-            bgra_frame = bytes(self.display.get_buffer())
+            bgra_frame = bytes(pygame.transform.scale(self.display, self.screen).get_buffer())
 
             self.fbmem.seek(0)
 
