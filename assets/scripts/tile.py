@@ -17,6 +17,6 @@ class Tile:
 
     def render(self, surf, offset = (0, 0)):
         if (self.highlighted):
-            pygame.draw.rect(surf, (200, 200, 200), self.highlight_rect, border_radius=7)
+            pygame.draw.rect(surf, (230, 230, 230), self.highlight_rect, border_radius=7)
         
-        pygame.draw.rect(surf, (180, 180, 180), self.rect, border_radius=5)
+        pygame.draw.rect(surf, (210, 210, 210), self.rect, border_radius=5)
