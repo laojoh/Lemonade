@@ -52,7 +52,7 @@ class Home:
         while True:
 
             self.display.fill((250, 250, 250))
-            self.banner.fill((255, 255, 0))
+            self.banner.fill((240, 240, 0))
 
             for button in self.page_1:
                 button.highlight(self.highlighted)
@@ -80,7 +80,7 @@ class Home:
                         if self.highlighted == 2 or self.highlighted == 3:
                             self.highlighted -= 2
 
-
+            self.display.fill((35, 35, 35) special_flags=pygame.BLEND_RGB_ADD)
             self.display.blit(self.banner, (0, 0))
             bgra_frame = bytes(pygame.transform.scale(self.display, self.screen.get_size()).get_buffer())
 
