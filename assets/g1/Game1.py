@@ -6,7 +6,7 @@ import pygame
 import sys
 import random
 from gpiozero import Button
-from scripts.entities import PhysicsEntity, Player, Enemy
+from g1.scripts.entities import PhysicsEntity, Player, Enemy
 from scripts.utils import Animation, load_image, load_images
 from scripts.tilemap import Tilemap
 from scripts.clouds import Clouds

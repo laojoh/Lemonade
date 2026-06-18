@@ -1,7 +1,8 @@
 import pygame
 import os
 
-BASE_IMG_PATH = "data/images"
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+BASE_IMG_PATH = os.path.join(SCRIPT_DIR, "data", "images")
 
 def load_image(path):
     img = pygame.image.load(BASE_IMG_PATH + path).convert()
