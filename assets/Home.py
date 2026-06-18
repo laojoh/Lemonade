@@ -5,7 +5,7 @@ import mmap
 import os
 import sys
 
-from gpiozero import Button
+from gpiozero import Button, Device
 from scripts.tile import Tile
 from g1.Game1 import Game1
 
@@ -77,6 +77,7 @@ class Home:
                     self.highlighted += 2
 
             if self.highlighted == 0 and self.button5.is_pressed:
+                Device.pin_factory.close()
                 Game1().run()
 
             # for event in pygame.event.get():
