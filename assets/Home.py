@@ -27,13 +27,6 @@ class Home:
         self.button5 = Button(19)
         self.button6 = Button(26)
 
-        self.button1.when_held = False
-        self.button2.when_held = False
-        self.button3.when_held = False
-        self.button4.when_held = False
-        self.button5.when_held = False
-        self.button6.when_held = False
-
         self.clock = pygame.time.Clock()
 
         self.game_button_w = 100
