@@ -77,7 +77,13 @@ class Home:
                     self.highlighted += 2
 
             if self.highlighted == 0 and self.button5.is_pressed:
-                Device.pin_factory.close()
+                self.button1.close()
+                self.button2.close()
+                self.button3.close()
+                self.button4.close()
+                self.button5.close()
+                self.button6.close()
+
                 Game1().run()
 
             # for event in pygame.event.get():
