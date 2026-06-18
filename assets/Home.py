@@ -46,6 +46,10 @@ class Home:
                 Tile((self.game_button_w, self.game_button_h), (self.game_button_w + 2 * self.gapx, self.game_button_h + 2 * self.gapy + self.banner_thick), 3)
         }
 
+        self.banner_title = pygame.font.SysFont("Verdana", 16)
+        self.banner_title_surf = self.banner_title.render("lemonade", True, (255, 255, 255))
+        self.display.blit(self.banner_title_surf, (2, 2))
+
         self.highlighted = 0
 
     def run(self):
