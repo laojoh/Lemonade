@@ -1,6 +1,7 @@
 import pygame
 import sys
 
+from scripts.button import Button
 import g1.Game1 as g1
 
 class Home:
@@ -13,20 +14,34 @@ class Home:
 
         self.clock = pygame.time.Clock()
 
-        self.gap = 10
+        self.game_button_w = 100
+        self.game_button_h = 50
 
-        self.game_list = list()
+        self.banner_thick = 20
 
+        self.banner = pygame.Surface((self.display.get_width(), self.banner_thick))
 
-        
+        self.gapx = (self.display.get_width() - self.game_button_w * 2) / 3
+        self.gapy = (self.display.get_height() - self.banner_thick - self.game_button_h * 2) / 3
+
+        self.page_1 = {
+                Button((self.game_button_w, self.game_button_h), (self.gapx, self.gapy + self.banner_thick), 0),
+                Button((self.game_button_w, self.game_button_h), (self.game_button_w +  2 * self.gapx, self.gapy + self.banner_thick), 1),
+                Button((self.game_button_w, self.game_button_h), (self.gapx, self.game_button_h + 2 * self.gapy + self.banner_thick), 2),
+                Button((self.game_button_w, self.game_button_h), (self.game_button_w + 2 * self.gapx, self.game_button_h + 2 * self.gapy + self.banner_thick), 3)
+        }
+
+        self.highlighted = 0
 
     def run(self):
         while True:
 
-            self.display.fill((255, 255, 255))
+            self.display.fill((219, 224, 231))
+            self.banner.fill((250, 250, 51))
 
-            for tile in self.game_list:
-                pygame.draw.rect()
+            for button in self.page_1:
+                button.highlight(self.highlighted)
+                button.render(self.display)
 
 
             for event in pygame.event.get():
@@ -37,9 +52,20 @@ class Home:
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_1:
                         g1.Game1().run()
+                    if event.key == pygame.K_RIGHT:
+                        if self.highlighted == 0 or self.highlighted == 2:
+                            self.highlighted += 1
+                    if event.key == pygame.K_LEFT:
+                        if self.highlighted == 1 or self.highlighted == 3:
+                            self.highlighted -= 1
+                    if event.key == pygame.K_DOWN:
+                        if self.highlighted == 0 or self.highlighted == 1:
+                            self.highlighted += 2
+                    if event.key == pygame.K_UP:
+                        if self.highlighted == 2 or self.highlighted == 3:
+                            self.highlighted -= 2
 
-            
-
+            self.display.blit(self.banner, (0, 0))
             self.screen.blit(pygame.transform.scale(self.display, self.screen.get_size()))
             pygame.display.update()
             self.clock.tick(60)
