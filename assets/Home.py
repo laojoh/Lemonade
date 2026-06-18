@@ -52,7 +52,7 @@ class Home:
         while True:
 
             self.display.fill((250, 250, 250))
-            self.banner.fill((240, 240, 0))
+            self.banner.fill((255, 255, 0))
 
             for button in self.page_1:
                 button.highlight(self.highlighted)
