@@ -76,6 +76,8 @@ class Home:
                 if self.highlighted == 0 or self.highlighted == 1:
                     self.highlighted += 2
 
+            if self.highlighted == 0 and self.button5.is_pressed:
+                g1().run()
 
             # for event in pygame.event.get():
             #     if event.type == pygame.QUIT:
