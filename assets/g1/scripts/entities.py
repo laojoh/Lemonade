@@ -2,8 +2,8 @@ import random
 
 import pygame
 import math
-from g1.scripts.particle import Particle
-from g1.scripts.spark import Spark
+from scripts.particle import Particle
+from scripts.spark import Spark
 
 
 class PhysicsEntity:
