@@ -6,14 +6,14 @@ import pygame
 import sys
 import random
 from gpiozero import Button
-from scripts.entities import PhysicsEntity, Player, Enemy
-from scripts.utils import Animation, load_image, load_images
-from scripts.tilemap import Tilemap
-from scripts.clouds import Clouds
-from scripts.particle import Particle
-from scripts.spark import Spark
+from g1.scripts.entities import PhysicsEntity, Player, Enemy
+from g1.scripts.utils import Animation, load_image, load_images
+from g1.scripts.tilemap import Tilemap
+from g1.scripts.clouds import Clouds
+from g1.scripts.particle import Particle
+from g1.scripts.spark import Spark
 
-class Game:
+class Game1:
     def __init__(self):
         pygame.init()
 
@@ -30,6 +30,8 @@ class Game:
         self.button2 = Button(16)
         self.button3 = Button(20)
         self.button4 = Button(21)
+        self.button5 = Button(19)
+        self.button6 = Button(26)
 
         self.clock = pygame.time.Clock()
 
@@ -193,7 +195,7 @@ class Game:
                 self.movement[0] = True
             else:
                 self.movement[0] = False
-            if self.button4.is_pressed:
+            if self.button5.is_pressed:
                 self.player.dash()
 
 
@@ -220,5 +222,3 @@ class Game:
             self.fbmem.write(bgra_frame)
 
             self.clock.tick(60)
-
-Game().run()
