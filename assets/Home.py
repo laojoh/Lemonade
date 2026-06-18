@@ -51,8 +51,8 @@ class Home:
     def run(self):
         while True:
 
-            self.display.fill((219, 224, 231))
-            self.banner.fill((250, 250, 51))
+            self.display.fill((250, 250, 250))
+            self.banner.fill((255, 255, 0))
 
             for button in self.page_1:
                 button.highlight(self.highlighted)
