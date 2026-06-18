@@ -17,7 +17,8 @@ class Home:
         self.screen = pygame.display.set_mode((480, 320))
         self.display = pygame.Surface((240, 160))
 
-        self.clock = pygame.time.Clock()
+        fb = open("/dev/fb0", "r+b")
+        self.fbmem = mmap.mmap(fb.fileno(), self.screen.get_width() * self.screen.get_height() * 4)
 
         self.button1 = Button(12)
         self.button2 = Button(16)
@@ -78,8 +79,12 @@ class Home:
                             self.highlighted -= 2
 
             self.display.blit(self.banner, (0, 0))
-            self.screen.blit(pygame.transform.scale(self.display, self.screen.get_size()))
-            pygame.display.update()
+            bgra_frame = bytes(self.display.get_buffer())
+
+            self.fbmem.seek(0)
+
+            self.fbmem.write(bgra_frame)
+
             self.clock.tick(60)
 
 Home().run()

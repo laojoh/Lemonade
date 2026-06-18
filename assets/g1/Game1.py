@@ -92,11 +92,6 @@ class Game1:
         self.transition = -30
         self.jump_times = 0
 
-        self.cloud = self.assets["clouds"][0]
-        pygame.image.save(self.cloud, "cloud_reencoded.bmp")
-
-        self.cloud = pygame.image.load("cloud_reencoded.bmp").convert()
-
     def run(self):
         while True:
             self.display.blit(self.assets["background"], (0, 0))
