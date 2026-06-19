@@ -16,7 +16,7 @@ class Game1:
         pygame.init()
 
         pygame.display.set_caption("lemonade")
-        self.screen = pygame.display.set_mode((480, 320))
+        self.screen = pygame.display.set_mode((1200, 800))
         self.display = pygame.Surface((240, 160))
 
         self.clock = pygame.time.Clock()

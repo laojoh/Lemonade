@@ -2,14 +2,14 @@ import pygame
 import sys
 
 from scripts.button import Button
-import g1.Game1 as g1
+from g1.Game1 import Game1
 
 class Home:
     def __init__(self):
         pygame.init()
 
         pygame.display.set_caption("lemonade")
-        self.screen = pygame.display.set_mode((480, 320))
+        self.screen = pygame.display.set_mode((1200, 800))
         self.display = pygame.Surface((240, 160))
 
         self.clock = pygame.time.Clock()
@@ -17,7 +17,7 @@ class Home:
         self.game_button_w = 100
         self.game_button_h = 50
 
-        self.banner_thick = 20
+        self.banner_thick = 24
 
         self.banner = pygame.Surface((self.display.get_width(), self.banner_thick))
 
@@ -31,13 +31,17 @@ class Home:
                 Button((self.game_button_w, self.game_button_h), (self.game_button_w + 2 * self.gapx, self.game_button_h + 2 * self.gapy + self.banner_thick), 3)
         }
 
+        self.banner_title = pygame.font.SysFont("Verdana", 16, True)
+        self.banner_title_surf = self.banner_title.render("lemonade", True, (255, 255, 255))
+        self.banner.fill((255, 255, 0))
+        self.banner.blit(self.banner_title_surf, (2, 2))
+
         self.highlighted = 0
 
     def run(self):
         while True:
 
             self.display.fill((219, 224, 231))
-            self.banner.fill((250, 250, 51))
 
             for button in self.page_1:
                 button.highlight(self.highlighted)
@@ -64,6 +68,9 @@ class Home:
                     if event.key == pygame.K_UP:
                         if self.highlighted == 2 or self.highlighted == 3:
                             self.highlighted -= 2
+                    if event.key == pygame.K_x:
+                        if self.highlighted == 0:
+                            Game1().run()
 
             self.display.blit(self.banner, (0, 0))
             self.screen.blit(pygame.transform.scale(self.display, self.screen.get_size()))
