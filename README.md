@@ -7,6 +7,9 @@ An open source, pocket-sized game console, able to load any pygame program with 
 
 
 ## Use
+
+###THIS BRANCH IS THE DESKTOP VERSION. PLEASE SWITCH BRANCHES TO "console" FOR THE CONSOLE VERSION TO INSTALL ON THE RASPBERRY PI
+
 **BEFORE ASSEMBLING COMPONENTS, PLEASE FOLLOW THE USE IN https://github.com/laojoh/Lemonade-Driver,** it will help guide the initial TFT SPI Display set up process. 
 
 ## Why?
