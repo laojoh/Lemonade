@@ -1,7 +1,7 @@
 import pygame
 
 class Tile:
-    def __init__(self, size, pos, num,, banner_img):
+    def __init__(self, size, pos, num, banner_img):
         self.size = list(size)
         self.pos = list(pos)
         self.rect = pygame.Rect(pos[0], pos[1], size[0], size[1])
