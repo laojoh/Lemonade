@@ -54,8 +54,6 @@ class Home:
                     sys.exit()
 
                 if event.type == pygame.KEYDOWN:
-                    if event.key == pygame.K_1:
-                        g1.Game1().run()
                     if event.key == pygame.K_RIGHT:
                         if self.highlighted == 0 or self.highlighted == 2:
                             self.highlighted += 1
