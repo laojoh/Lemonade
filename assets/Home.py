@@ -25,10 +25,10 @@ class Home:
         self.gapy = (self.display.get_height() - self.banner_thick - self.game_button_h * 2) / 3
 
         self.page_1 = {
-                Button((self.game_button_w, self.game_button_h), (self.gapx, self.gapy + self.banner_thick), 0),
-                Button((self.game_button_w, self.game_button_h), (self.game_button_w +  2 * self.gapx, self.gapy + self.banner_thick), 1),
-                Button((self.game_button_w, self.game_button_h), (self.gapx, self.game_button_h + 2 * self.gapy + self.banner_thick), 2),
-                Button((self.game_button_w, self.game_button_h), (self.game_button_w + 2 * self.gapx, self.game_button_h + 2 * self.gapy + self.banner_thick), 3)
+                Button((self.game_button_w, self.game_button_h), (self.gapx, self.gapy + self.banner_thick), 0, pygame.image.load("assets/g1/data/images/banner.png")),
+                Button((self.game_button_w, self.game_button_h), (self.game_button_w +  2 * self.gapx, self.gapy + self.banner_thick), 1, pygame.image.load("assets/g1/data/images/banner.png")),
+                Button((self.game_button_w, self.game_button_h), (self.gapx, self.game_button_h + 2 * self.gapy + self.banner_thick), 2, pygame.image.load("assets/g1/data/images/banner.png")),
+                Button((self.game_button_w, self.game_button_h), (self.game_button_w + 2 * self.gapx, self.game_button_h + 2 * self.gapy + self.banner_thick), 3, pygame.image.load("assets/g1/data/images/banner.png"))
         }
 
         self.banner_title = pygame.font.SysFont("Verdana", 16, True)
@@ -76,6 +76,5 @@ class Home:
             self.screen.blit(pygame.transform.scale(self.display, self.screen.get_size()))
             pygame.display.update()
             self.clock.tick(60)
-
 
 Home().run()
