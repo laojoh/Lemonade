@@ -1,6 +1,6 @@
 # Lemonade
 
-![Fallout zine page](fallout_lemonade_zine.png)
+![Fallout zine page](lemonadepng.png)
 
 An open source, pocket-sized game console, able to load any pygame program with just a little modification! Parts are relatively cheap, and it's **open source**, meaning anyone can make it (with enough movitvation)! 
 
