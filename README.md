@@ -1,6 +1,6 @@
 # Lemonade
 
-![Fallout zine page](lemonadepng.png)
+![Fallout zine page](images/lemonadepng.png)
 
 An open source, pocket-sized game console, able to load any pygame program with just a little modification! Parts are relatively cheap, and it's **open source**, meaning anyone can make it (with enough movitvation)! 
 
@@ -54,13 +54,13 @@ Lemonade in essence extends opportunity in python coding to people who may not h
 
 ## Images
 
-![Assembly photo 1](fullassembly(1).png)
+![Assembly photo 1](images/fullassembly(1).png)
 
-![Assembly photo 2](fullassembly(2).png)
+![Assembly photo 2](images/fullassembly(2).png)
 
-![PCB photo 1](PCB.png)
+![PCB photo 1](images/PCB.png)
 
-![PCB photo 2](PCB2.png)
+![PCB photo 2](images/PCB2.png)
 
-![PCB Schematic](PCB(sch).png)
+![PCB Schematic](images/PCB(sch).png)
 
