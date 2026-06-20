@@ -54,3 +54,13 @@ Lemonade in essence extends opportunity in python coding to people who may not h
 
 ## Images
 
+![Assembly photo 1](fullassembly(1).png)
+
+![Assembly photo 2](fullassembly(2).png)
+
+![PCB photo 1](PCB.png)
+
+![PCB photo 2](PCB2.png)
+
+![PCB Schematic](PCB(sch).png)
+
