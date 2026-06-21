@@ -44,12 +44,14 @@ sudo nano /etc/rc.local
 From there, hold CTRL+K to delete everything. Replace it with this:
 
 ```
-! bin/sh
+#! /bin/sh -e
 
-sudo home/[user]/Lemonade-Driver/build/fbcp-ili9341 &
+/home/[user]/Lemonade-Driver/build/fbcp-ili9341 &
 
 cd home/[user]/Lemonade/assets
-sudo python3 Home.py
+python3 /home/[user]/Lemonade/assets/Home.py
+
+exit 0
 ```
 
 That is the startup script for what the pi should do at startup. 
