@@ -68,7 +68,7 @@ class Board:
             y = 1
 
             for i in range(self.height):
-                x = surf.width / 2 - self.width * self.tile_size / 2 - 4
+                x = surf.get_width() / 2 - self.width * self.tile_size / 2 - 4
                 for j in range(self.width):
                     tile = pygame.Rect(x, y, self.tile_size, self.tile_size)
                     if self.board[i][j] == 0:
