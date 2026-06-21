@@ -1,6 +1,7 @@
 import pygame
 import sys
 
+from g4.Game4 import Game4
 from scripts.button import Button
 from g1.Game1 import Game1
 
@@ -69,6 +70,8 @@ class Home:
                     if event.key == pygame.K_x:
                         if self.highlighted == 0:
                             Game1().run()
+                        if self.highlighted == 3:
+                            Game4().run()
 
             self.display.blit(self.banner, (0, 0))
             self.screen.blit(pygame.transform.scale(self.display, self.screen.get_size()))

@@ -49,6 +49,8 @@ class Game4:
                         self.piece.move(self.board, 1)
                     if event.key == pygame.K_UP:
                         self.piece.rotate(self.board)
+                    if event.key == pygame.K_q:
+                        return
 
                 if event.type == pygame.KEYUP:
                     if event.key == pygame.K_LEFT:
@@ -63,5 +65,3 @@ class Game4:
             self.screen.blit(pygame.transform.scale(self.display, self.screen.get_size()))
             pygame.display.update()
             self.clock.tick(60)
-
-Game4().run()
