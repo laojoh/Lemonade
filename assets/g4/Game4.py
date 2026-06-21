@@ -21,7 +21,7 @@ class Game4:
         self.button3 = Button(20, bounce_time = 0.15)
         self.button4 = Button(21)
         self.button5 = Button(19)
-        self.button6 = Button(26 bounce_time = 1)
+        self.button6 = Button(26, bounce_time = 1)
 
         self.clock = pygame.time.Clock()
         self.tile_size = 8
