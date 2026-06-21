@@ -62,7 +62,6 @@ class Game4:
                     self.piece.y += 1
 
             self.display.fill((35, 35, 35), special_flags=pygame.BLEND_RGB_ADD)
-            self.display.blit(self.banner, (0, 0))
             bgra_frame = bytes(pygame.transform.scale(self.display, self.screen.get_size()).get_buffer())
 
             self.fbmem.seek(0)
