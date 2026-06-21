@@ -72,7 +72,7 @@ class Board:
                 for j in range(self.width):
                     tile = pygame.Rect(x, y, self.tile_size, self.tile_size)
                     if self.board[i][j] == 0:
-                        pygame.draw.rect(surf, (240, 240, 240), tile)
+                        pygame.draw.rect(surf, (219, 219, 219), tile)
                     else: 
                         pygame.draw.rect(surf, (255, 255, 0), tile)
                     x += self.tile_size + 1
