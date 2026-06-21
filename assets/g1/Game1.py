@@ -80,6 +80,7 @@ class Game1:
 
     def run(self):
         while True:
+            self.display.fill((255, 255, 255))
             self.display.blit(self.assets["background"], (0, 0))
 
             self.screenshake = max(0, self.screenshake - 0.5)
