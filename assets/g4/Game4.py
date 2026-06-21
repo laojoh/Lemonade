@@ -50,24 +50,6 @@ class Game4:
                 self.piece = Piece(random.choice(["I", "T", "J", "L", "S", "Z", "O"]), random.choice([4, 5]), 0, 0, self.tile_size)
                 self.timer = 0
 
-            # for event in pygame.event.get():
-            #     if event.type == pygame.QUIT:
-            #         pygame.quit()
-            #         sys.exit()
-            #     if event.type == pygame.KEYDOWN:
-            #         if event.key == pygame.K_LEFT:
-            #             self.piece.move(self.board, -1)
-            #         if event.key == pygame.K_RIGHT:
-            #             self.piece.move(self.board, 1)
-            #         if event.key == pygame.K_UP:
-            #             self.piece.rotate(self.board)
-
-            # keys = pygame.key.get_pressed()
-            # if keys[pygame.K_DOWN] and self.timer % 3 == 0:
-            #     test = Piece(self.piece.type, self.piece.x, self.piece.y + 1, self.piece.rotation, self.tile_size)
-            #     if self.board.valid(test):
-            #         self.piece.y += 1
-
             if self.button1.is_pressed and self.timer % 5 == 0:
                 self.piece.rotate(self.board)
             if self.button2.is_pressed and self.timer % 5 == 0:
@@ -88,5 +70,3 @@ class Game4:
             self.fbmem.write(bgra_frame)
 
             self.clock.tick(60)
-
-Game4().run()

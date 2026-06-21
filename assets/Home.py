@@ -8,6 +8,7 @@ import sys
 from gpiozero import Button, Device
 from scripts.tile import Tile
 from g1.Game1 import Game1
+from g4.Game4 import Game4
 
 class Home:
     def __init__(self):
@@ -41,7 +42,7 @@ class Home:
 
         self.page_1 = {
                 Tile((self.game_button_w, self.game_button_h), (self.gapx, self.gapy + self.banner_thick), 0, pygame.image.load("g1/data/images/banner.png")),
-                Tile((self.game_button_w, self.game_button_h), (self.game_button_w +  2 * self.gapx, self.gapy + self.banner_thick), 1, pygame.image.load("g4/banner.png")),
+                Tile((self.game_button_w, self.game_button_h), (self.game_button_w +  2 * self.gapx, self.gapy + self.banner_thick), 1, pygame.image.load("g1/data/images/banner.png")),
                 Tile((self.game_button_w, self.game_button_h), (self.gapx, self.game_button_h + 2 * self.gapy + self.banner_thick), 2, pygame.image.load("g1/data/images/banner.png")),
                 Tile((self.game_button_w, self.game_button_h), (self.game_button_w + 2 * self.gapx, self.game_button_h + 2 * self.gapy + self.banner_thick), 3, pygame.image.load("g1/data/images/banner.png"))
         }
@@ -85,27 +86,15 @@ class Home:
                 self.button6.close()
 
                 Game1().run()
+            if self.highlighted == 3 and self.button5.is_pressed:
+                self.button1.close()
+                self.button2.close()
+                self.button3.close()
+                self.button4.close()
+                self.button5.close()
+                self.button6.close()
 
-            # for event in pygame.event.get():
-            #     if event.type == pygame.QUIT:
-            #         pygame.quit()
-            #         sys.exit()
-
-            #     if event.type == pygame.KEYDOWN:
-            #         if event.key == pygame.K_1:
-            #             g1.Game1().run()
-            #         if event.key == pygame.K_RIGHT:
-            #             if self.highlighted == 0 or self.highlighted == 2:
-            #                 self.highlighted += 1
-            #         if event.key == pygame.K_LEFT:
-            #             if self.highlighted == 1 or self.highlighted == 3:
-            #                 self.highlighted -= 1
-            #         if event.key == pygame.K_DOWN:
-            #             if self.highlighted == 0 or self.highlighted == 1:
-            #                 self.highlighted += 2
-            #         if event.key == pygame.K_UP:
-            #             if self.highlighted == 2 or self.highlighted == 3:
-            #                 self.highlighted -= 2
+                Game4().run()
 
             self.display.fill((35, 35, 35), special_flags=pygame.BLEND_RGB_ADD)
             self.display.blit(self.banner, (0, 0))
