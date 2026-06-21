@@ -1,15 +1,27 @@
 import pygame
 import sys
 import random
+import mmap
 
-from scripts.board import Board
-from scripts.piece import Piece
+from gpiozero import Button
+from g4.scripts.board import Board
+from g4.scripts.piece import Piece
 
 class Game4:
     def __init__(self):
         pygame.display.set_caption("lemonade")
-        self.screen = pygame.display.set_mode((1200, 800))
+        self.screen = pygame.display.set_mode((480, 320))
         self.display = pygame.Surface((240, 160))
+        
+        fb = open("/dev/fb0", "r+b")
+        self.fbmem = mmap.mmap(fb.fileno(), self.screen.get_width() * self.screen.get_height() * 4)
+
+        self.button1 = Button(12)
+        self.button2 = Button(16)
+        self.button3 = Button(20)
+        self.button4 = Button(21)
+        self.button5 = Button(19)
+        self.button6 = Button(26)
 
         self.clock = pygame.time.Clock()
         self.tile_size = 8
@@ -38,30 +50,43 @@ class Game4:
                 self.piece = Piece(random.choice(["I", "T", "J", "L", "S", "Z", "O"]), random.choice([4, 5]), 0, 0, self.tile_size)
                 self.timer = 0
 
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    pygame.quit()
-                    sys.exit()
-                if event.type == pygame.KEYDOWN:
-                    if event.key == pygame.K_LEFT:
-                        self.piece.move(self.board, -1)
-                    if event.key == pygame.K_RIGHT:
-                        self.piece.move(self.board, 1)
-                    if event.key == pygame.K_UP:
-                        self.piece.rotate(self.board)
+            # for event in pygame.event.get():
+            #     if event.type == pygame.QUIT:
+            #         pygame.quit()
+            #         sys.exit()
+            #     if event.type == pygame.KEYDOWN:
+            #         if event.key == pygame.K_LEFT:
+            #             self.piece.move(self.board, -1)
+            #         if event.key == pygame.K_RIGHT:
+            #             self.piece.move(self.board, 1)
+            #         if event.key == pygame.K_UP:
+            #             self.piece.rotate(self.board)
 
-                if event.type == pygame.KEYUP:
-                    if event.key == pygame.K_LEFT:
-                        pass
+            # keys = pygame.key.get_pressed()
+            # if keys[pygame.K_DOWN] and self.timer % 3 == 0:
+            #     test = Piece(self.piece.type, self.piece.x, self.piece.y + 1, self.piece.rotation, self.tile_size)
+            #     if self.board.valid(test):
+            #         self.piece.y += 1
 
-            keys = pygame.key.get_pressed()
-            if keys[pygame.K_DOWN] and self.timer % 3 == 0:
+            if self.button1.is_pressed and self.timer % 5 == 0:
+                self.piece.rotate(self.board)
+            if self.button2.is_pressed and self.timer % 5 == 0:
+                self.piece.move(self.board, 1)
+            if self.button3.is_pressed and self.timer % 5 == 0:
+                self.piece.move(self.board, -1)
+            if self.button4.is_pressed and self.timer % 3 == 0:
                 test = Piece(self.piece.type, self.piece.x, self.piece.y + 1, self.piece.rotation, self.tile_size)
                 if self.board.valid(test):
                     self.piece.y += 1
 
-            self.screen.blit(pygame.transform.scale(self.display, self.screen.get_size()))
-            pygame.display.update()
+            self.display.fill((35, 35, 35), special_flags=pygame.BLEND_RGB_ADD)
+            self.display.blit(self.banner, (0, 0))
+            bgra_frame = bytes(pygame.transform.scale(self.display, self.screen.get_size()).get_buffer())
+
+            self.fbmem.seek(0)
+
+            self.fbmem.write(bgra_frame)
+
             self.clock.tick(60)
 
 Game4().run()

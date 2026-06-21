@@ -41,7 +41,7 @@ class Home:
 
         self.page_1 = {
                 Tile((self.game_button_w, self.game_button_h), (self.gapx, self.gapy + self.banner_thick), 0, pygame.image.load("g1/data/images/banner.png")),
-                Tile((self.game_button_w, self.game_button_h), (self.game_button_w +  2 * self.gapx, self.gapy + self.banner_thick), 1, pygame.image.load("g1/data/images/banner.png")),
+                Tile((self.game_button_w, self.game_button_h), (self.game_button_w +  2 * self.gapx, self.gapy + self.banner_thick), 1, pygame.image.load("g4/banner.png")),
                 Tile((self.game_button_w, self.game_button_h), (self.gapx, self.game_button_h + 2 * self.gapy + self.banner_thick), 2, pygame.image.load("g1/data/images/banner.png")),
                 Tile((self.game_button_w, self.game_button_h), (self.game_button_w + 2 * self.gapx, self.game_button_h + 2 * self.gapy + self.banner_thick), 3, pygame.image.load("g1/data/images/banner.png"))
         }
