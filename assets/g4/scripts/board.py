@@ -64,7 +64,7 @@ class Board:
 
     # 1 : I, 2: T, 3: J, 4: L, 5: S, 6: Z, 7: O
     def render(self, surf):
-            x = surf.width / 2
+            x = surf.get_width() / 2
             y = 1
 
             for i in range(self.height):
