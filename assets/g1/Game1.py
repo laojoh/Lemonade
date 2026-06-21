@@ -31,7 +31,7 @@ class Game1:
         self.button3 = Button(20)
         self.button4 = Button(21)
         self.button5 = Button(19)
-        self.button6 = Button(26)
+        self.button6 = Button(26, bounce_time = 1)
 
         self.clock = pygame.time.Clock()
 
@@ -192,6 +192,8 @@ class Game1:
                 self.movement[0] = False
             if self.button5.is_pressed:
                 self.player.dash()
+            if self.button6.is_pressed:
+                return
 
 
             if self.transition:

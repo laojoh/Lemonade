@@ -21,7 +21,7 @@ class Game4:
         self.button3 = Button(20, bounce_time = 0.15)
         self.button4 = Button(21)
         self.button5 = Button(19)
-        self.button6 = Button(26)
+        self.button6 = Button(26 bounce_time = 1)
 
         self.clock = pygame.time.Clock()
         self.tile_size = 8
@@ -60,6 +60,8 @@ class Game4:
                 test = Piece(self.piece.type, self.piece.x, self.piece.y + 1, self.piece.rotation, self.tile_size)
                 if self.board.valid(test):
                     self.piece.y += 1
+            if self.button6.is_pressed:
+                return
 
             self.display.fill((35, 35, 35), special_flags=pygame.BLEND_RGB_ADD)
             bgra_frame = bytes(pygame.transform.scale(self.display, self.screen.get_size()).get_buffer())
