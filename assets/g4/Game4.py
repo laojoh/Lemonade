@@ -25,6 +25,9 @@ class Game4:
         self.timer = 0
 
     def run(self, button1, button2, button3, button4, button6):
+        button1.bounce_time = 0.15
+        button2.bounce_time = 0.15
+        button3.bounce_time = 0.15
         while True:
             self.timer += 1
             self.display.fill((255, 255, 255))
