@@ -1,9 +1,9 @@
 Part,Quantity,Link,Price,Notes
-Raspberry Pi Zero 2 W,1,Raspberry Pi Zero 2 W | SC1146 ,$17.25,Base computer and stuffs
-"4.0"" TFT SPI Display",1,"4.0"" TFT SPI Display",$13.01,Screen
+Raspberry Pi Zero 2 W,1,https://www.pishop.us/product/raspberry-pi-zero-2-w/?src=raspberrypi,$17.25,Base computer and stuffs
+"4.0"" TFT SPI Display",1,https://www.aliexpress.us/item/3256809575069193.html?spm=a2g0o.detail.0.0.604fhvjyhvjywW&mp=1&pdp_npi=6%40dis%21USD%21USD+13.32%21USD+0.99%21%21USD+0.99%21%21%21%402103212b17806555389702086ea6dd%2112000050079449351%21ct%21US%21-1%21%211%210%21&_gl=1*1mbfbkz*_gcl_au*MjgxNDYxOTA5LjE3Nzg1NTY1NzY.*_ga*MTgxOTI1OTc1Ni4xNzgwNjQzMjcx*_ga_VED1YSGNC7*czE3ODA2OTc5ODQkbzQkZzAkdDE3ODA2OTc5ODckajU3JGwwJGgw&gatewayAdapt=glo2usa,$13.01,Screen
 PCB,1,,,Linkage for all the things
-Battery (Pi Sugar 3 Plus),1,PiSugar 3 Plus 5000mAh Raspberry Pi UPS ,$49.99,"Battery :) Ideally >= 10,000 mAh"
-Buttons,1,Tactile Buttons,$2.55,inputs!
-Button Caps,1,Button Caps ,$5.99,To make buttons easier to press
-Heat Set Inserts,1,M3 Standard Heat Set Inserts ,$11.99,To hold things together
-M3 Screws,1,M3 Screws ,$3.97,More screws
+Battery (Pi Sugar 3 Plus),1,https://www.pisugar.com/products/pisugar-3-plus-raspberry-pi-ups,$49.99,"Battery :) Ideally >= 10,000 mAh"
+Buttons,1,https://www.pishop.us/product/tactile-button-switch-6mm-20-pack/,$2.55,inputs!
+Button Caps,1,https://www.amazon.com/uxcell-Plastic-Tactile-Keycaps-Protector/dp/B07PGV76K3/ref=pd_sbs_d_sccl_1_2/130-0236019-1995701?pd_rd_w=mP9TB&content-id=amzn1.sym.aa738fbd-ad05-4d11-aae2-04b598db6305&pf_rd_p=aa738fbd-ad05-4d11-aae2-04b598db6305&pf_rd_r=21QEBY8HZ1DGRBNS0TFE&pd_rd_wg=hgd7R&pd_rd_r=23a7f6e8-6bc0-491b-972d-83fab6170ca0&pd_rd_i=B07PGV76K3&th=1,$5.99,To make buttons easier to press
+Heat Set Inserts,1,https://www.prusa3d.com/en/product/heat-set-inserts-m3-standard-100-pcs/,$11.99,To hold things together
+M3 Screws,1,https://www.homedepot.com/p/M3-0-5x25mm-Stainless-Steel-Flat-Head-Phillips-Drive-Machine-Screw-2-Pieces-863858/323371339?source=shoppingads&locale=en-US&fp=ggl,$3.97,More screws
