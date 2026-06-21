@@ -8,6 +8,10 @@ An open source, pocket-sized game console, able to load any pygame program with 
 
 **THIS BRANCH IS THE DESKTOP VERSION. PLEASE SWITCH BRANCHES TO "console" FOR THE CONSOLE VERSION IN THE EVENT YOU ARE BUILDING IT**
 
+Check out the **console** onshape link!
+
+https://cad.onshape.com/documents/b190164d285ac74417b1d1a8/w/ccaa6db00e3677430904407c/e/88483beccc87a88b48fd7f32
+
 ### Installation
 
 To be completely honest, this branch is just to test code and logic before going into the tft display, but I got the idea to make a desktop version!
