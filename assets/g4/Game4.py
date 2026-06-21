@@ -2,8 +2,8 @@ import pygame
 import sys
 import random
 
-from scripts.board import Board
-from scripts.piece import Piece
+from g4.scripts.board import Board
+from g4.scripts.piece import Piece
 
 class Game4:
     def __init__(self):
