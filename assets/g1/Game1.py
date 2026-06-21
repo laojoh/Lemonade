@@ -26,13 +26,6 @@ class Game1:
         fb = open("/dev/fb0", "r+b")
         self.fbmem = mmap.mmap(fb.fileno(), self.screen.get_width() * self.screen.get_height() * 4)
 
-        self.button1 = Button(12)
-        self.button2 = Button(16)
-        self.button3 = Button(20)
-        self.button4 = Button(21)
-        self.button5 = Button(19)
-        self.button6 = Button(26, bounce_time = 1)
-
         self.clock = pygame.time.Clock()
 
         self.movement = [False, False]
@@ -92,7 +85,7 @@ class Game1:
         self.transition = -30
         self.jump_times = 0
 
-    def run(self):
+    def run(self, button1, button2, button3, button5, button6):
         while True:
             self.display.blit(self.assets["background"], (0, 0))
 
@@ -177,22 +170,22 @@ class Game1:
                     self.particles.remove(particle)
 
 
-            if self.button1.is_pressed and self.jump_times == 0:
+            if button1.is_pressed and self.jump_times == 0:
                 self.player.jump()
                 self.jump_times = 1
-            elif not self.button1.is_pressed:
+            elif not button1.is_pressed:
                 self.jump_times = 0
-            if self.button2.is_pressed:
+            if button2.is_pressed:
                 self.movement[1] = True
             else: 
                 self.movement[1] = False
-            if self.button3.is_pressed:
+            if button3.is_pressed:
                 self.movement[0] = True
             else:
                 self.movement[0] = False
-            if self.button5.is_pressed:
+            if button5.is_pressed:
                 self.player.dash()
-            if self.button6.is_pressed:
+            if button6.is_pressed:
                 return
 
 

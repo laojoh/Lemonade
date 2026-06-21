@@ -78,23 +78,12 @@ class Home:
                     self.highlighted += 2
 
             if self.highlighted == 0 and self.button5.is_pressed:
-                self.button1.close()
-                self.button2.close()
-                self.button3.close()
-                self.button4.close()
-                self.button5.close()
-                self.button6.close()
 
-                Game1().run()
+                Game1().run(self.button1, self.button2, self.button3, self.button5, self.button6)
+
             if self.highlighted == 3 and self.button5.is_pressed:
-                self.button1.close()
-                self.button2.close()
-                self.button3.close()
-                self.button4.close()
-                self.button5.close()
-                self.button6.close()
 
-                Game4().run()
+                Game4().run(self.button1, self.button2, self.button3, self.button4, self.button6)
 
             self.display.fill((35, 35, 35), special_flags=pygame.BLEND_RGB_ADD)
             self.display.blit(self.banner, (0, 0))

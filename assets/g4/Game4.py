@@ -16,13 +16,6 @@ class Game4:
         fb = open("/dev/fb0", "r+b")
         self.fbmem = mmap.mmap(fb.fileno(), self.screen.get_width() * self.screen.get_height() * 4)
 
-        self.button1 = Button(12, bounce_time = 0.15)
-        self.button2 = Button(16, bounce_time = 0.15)
-        self.button3 = Button(20, bounce_time = 0.15)
-        self.button4 = Button(21)
-        self.button5 = Button(19)
-        self.button6 = Button(26, bounce_time = 1)
-
         self.clock = pygame.time.Clock()
         self.tile_size = 8
 
@@ -31,7 +24,7 @@ class Game4:
         self.piece = Piece(random.choice(["I", "T", "J", "L", "S", "Z", "O"]), random.choice([4, 5]), 0, 0, self.tile_size)
         self.timer = 0
 
-    def run(self):
+    def run(self, button1, button2, button3, button4, button6):
         while True:
             self.timer += 1
             self.display.fill((255, 255, 255))
@@ -50,17 +43,17 @@ class Game4:
                 self.piece = Piece(random.choice(["I", "T", "J", "L", "S", "Z", "O"]), random.choice([4, 5]), 0, 0, self.tile_size)
                 self.timer = 0
 
-            if self.button1.is_pressed and self.timer % 5 == 0:
+            if button1.is_pressed and self.timer % 5 == 0:
                 self.piece.rotate(self.board)
-            if self.button2.is_pressed and self.timer % 5 == 0:
+            if button2.is_pressed and self.timer % 5 == 0:
                 self.piece.move(self.board, 1)
-            if self.button3.is_pressed and self.timer % 5 == 0:
+            if button3.is_pressed and self.timer % 5 == 0:
                 self.piece.move(self.board, -1)
-            if self.button4.is_pressed and self.timer % 3 == 0:
+            if button4.is_pressed and self.timer % 3 == 0:
                 test = Piece(self.piece.type, self.piece.x, self.piece.y + 1, self.piece.rotation, self.tile_size)
                 if self.board.valid(test):
                     self.piece.y += 1
-            if self.button6.is_pressed:
+            if button6.is_pressed:
                 return
 
             self.display.fill((35, 35, 35), special_flags=pygame.BLEND_RGB_ADD)
