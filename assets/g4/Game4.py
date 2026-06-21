@@ -16,7 +16,7 @@ class Game4:
         fb = open("/dev/fb0", "r+b")
         self.fbmem = mmap.mmap(fb.fileno(), self.screen.get_width() * self.screen.get_height() * 4)
 
-        self.button1 = Button(12, bounce_time=50)
+        self.button1 = Button(12, bounce_time=50ms)
         self.button2 = Button(16)
         self.button3 = Button(20)
         self.button4 = Button(21)
