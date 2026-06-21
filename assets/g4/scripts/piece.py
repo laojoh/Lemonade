@@ -71,5 +71,5 @@ class Piece:
             y = block[1] + self.y
             blocks.append([x, y])
         for block in blocks:
-            blocc = pygame.Rect((surf.width / 2 - board.width * self.tile_size / 2 - 4) + (9 * block[0]),  1 + 9 * block[1], self.tile_size, self.tile_size)
+            blocc = pygame.Rect((surf.get_width() / 2 - board.width * self.tile_size / 2 - 4) + (9 * block[0]),  1 + 9 * block[1], self.tile_size, self.tile_size)
             pygame.draw.rect(surf, (255, 255, 0), blocc)
